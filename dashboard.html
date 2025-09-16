@@ -3,31 +3,93 @@
 <head>
   <meta charset="UTF-8">
   <title>Dashboard - OSTIM Technical University</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="style.css">
+  <style>
+    .widgets {
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:12px;
+      margin-top:12px
+    }
+    .widgets .card { text-align:center; }
+    .widgets .title { color:#6b7280;font-size:13px;margin-bottom:6px }
+    .widgets .value { font-size:20px;font-weight:800;color:#8b0f2b }
+    .logout-btn { background:#8b0f2b;color:#fff;padding:8px 14px;border:none;border-radius:6px;cursor:pointer }
+  </style>
 </head>
 <body>
-  <div class="dashboard-container">
-    <header class="dashboard-header">
+  <div class="container">
+
+    <!-- Header -->
+    <div class="card header" style="display:flex;align-items:center;gap:12px">
       <img src="logo.png" alt="Logo" class="logo">
       <h2>Student Dashboard</h2>
-    </header>
+      <div style="margin-left:auto;display:flex;gap:8px;align-items:center">
+        <button id="logoutBtn" class="logout-btn">Logout</button>
+      </div>
+    </div>
 
-    <main class="dashboard-main">
-      <h3>Welcome, Student</h3>
-      <p class="status active">Active Student</p>
+    <div class="grid">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <div class="card">
+          <div class="status">ACTIVE</div>
+          <nav class="nav">
+            <a href="profile.html">Profile</a>
+            <a href="grades.html">Grades</a>
+            <a href="transcript.html">Transcript</a>
+            <a href="schedule.html">Schedule</a>
+            <a href="selected-courses.html">Selected Courses</a>
+          </nav>
+        </div>
+      </aside>
 
-      <nav class="dashboard-nav">
-        <a href="profile.html">Profile</a>
-        <a href="grades.html">Grades</a>
-        <a href="transcript.html">Transcript</a>
-        <a href="schedule.html">Schedule</a>
-        <a href="selected-courses.html">Selected Courses</a>
-        <a href="semester1.html">Semester 1</a>
-        <a href="semester2.html">Semester 2</a>
-        <a href="semester3.html">Semester 3</a>
-        <a href="semester4.html">Semester 4</a>
-      </nav>
-    </main>
+      <!-- Main -->
+      <main>
+        <!-- Widgets -->
+        <section class="widgets">
+          <div class="card">
+            <div class="title">Status</div>
+            <div class="value">Active</div>
+          </div>
+          <div class="card">
+            <div class="title">Completed Credits</div>
+            <div class="value">83</div>
+          </div>
+          <div class="card">
+            <div class="title">GPA</div>
+            <div class="value">3.61</div>
+          </div>
+        </section>
+
+        <!-- Messages -->
+        <section class="card" style="margin-top:16px">
+          <h3 class="section-title">Announcements</h3>
+          <ul style="margin-top:8px;color:#1f2937;line-height:1.6">
+            <li>Welcome to Semester 5! Check your registered courses.</li>
+            <li>Midterm schedule will be announced soon.</li>
+            <li>Library hours updated: Mon–Fri 08:00–18:00.</li>
+          </ul>
+        </section>
+      </main>
+    </div>
   </div>
+
+  <script>
+    // Check session
+    (function(){
+      try {
+        const u = localStorage.getItem('sessionUser');
+        if(!u){ window.location.href = 'login.html'; return; }
+      } catch(e){}
+    })();
+
+    // Logout button
+    document.getElementById('logoutBtn')?.addEventListener('click', function(){
+      try{ localStorage.removeItem('sessionUser'); }catch(e){}
+      window.location.href = 'login.html';
+    });
+  </script>
 </body>
 </html>
