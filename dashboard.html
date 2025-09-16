@@ -6,26 +6,72 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="style.css">
   <style>
-    .widgets {
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:12px;
-      margin-top:12px
+    /* Top bar */
+    .topbar {
+      display:flex;align-items:center;gap:12px;justify-content:space-between;
     }
-    .widgets .card { text-align:center; }
+    .topbar-left { display:flex;align-items:center;gap:12px }
+    .topbar-right { display:flex;align-items:center;gap:10px }
+    .logo-top { width:44px;height:auto }
+    .icon-btn {
+      display:inline-flex;align-items:center;justify-content:center;
+      width:38px;height:38px;border:1px solid var(--border);border-radius:10px;
+      background:#fff;cursor:pointer;
+    }
+    .icon-btn:hover { background:#fafafa }
+    .badge {
+      min-width:18px;height:18px;border-radius:9px;background:#8b0f2b;color:#fff;
+      font-size:11px;display:inline-flex;align-items:center;justify-content:center;
+      padding:0 6px;margin-left:6px
+    }
+    .avatar {
+      width:40px;height:40px;border-radius:50%;object-fit:cover;border:1px solid var(--border)
+    }
+    /* widgets */
+    .widgets {
+      display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px
+    }
+    .widgets .card { text-align:center }
     .widgets .title { color:#6b7280;font-size:13px;margin-bottom:6px }
     .widgets .value { font-size:20px;font-weight:800;color:#8b0f2b }
+    /* messages */
+    .msg-list { list-style:none;margin:10px 0 0;padding:0 }
+    .msg-list li { padding:10px;border:1px solid var(--border);border-radius:10px;margin-bottom:8px;background:#fff }
+    .msg-date { color:#6b7280;font-size:12px }
+    .msg-title { font-weight:700 }
     .logout-btn { background:#8b0f2b;color:#fff;padding:8px 14px;border:none;border-radius:6px;cursor:pointer }
+    @media (max-width:900px){ .widgets{ grid-template-columns:1fr } }
   </style>
 </head>
 <body>
   <div class="container">
 
-    <!-- Header -->
-    <div class="card header" style="display:flex;align-items:center;gap:12px">
-      <img src="logo.png" alt="Logo" class="logo">
-      <h2>Student Dashboard</h2>
-      <div style="margin-left:auto;display:flex;gap:8px;align-items:center">
+    <!-- Top Bar -->
+    <div class="card topbar">
+      <div class="topbar-left">
+        <img src="logo.png" alt="Logo" class="logo-top">
+        <h2 style="margin:0">Student Dashboard</h2>
+      </div>
+      <div class="topbar-right">
+        <!-- Messages button with counter -->
+        <button class="icon-btn" title="Messages">
+          <!-- mail icon -->
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M4 6h16a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1zm0 0l8 6 8-6" stroke="#8b0f2b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span class="badge" id="msgCount">10</span>
+        </button>
+        <!-- Settings button -->
+        <button class="icon-btn" title="Settings" id="settingsBtn">
+          <!-- gear icon -->
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M12 15.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z" stroke="#111" stroke-width="2"/>
+            <path d="M19.4 15a1 1 0 0 0 .2 1.1l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1 1 0 0 0-1.1-.2 8 8 0 0 1-2 .6 1 1 0 0 0-.8.9V21a2 2 0 1 1-4 0v-.2a1 1 0 0 0-.8-.9 8 8 0 0 1-2-.6 1 1 0 0 0-1.1.2l-.1.1A2 2 0 1 1 3.3 16l.1-.1a1 1 0 0 0 .2-1.1 8 8 0 0 1-.6-2 1 1 0 0 0-.9-.8H2a2 2 0 1 1 0-4h.2a1 1 0 0 0 .9-.8 8 8 0 0 1 .6-2 1 1 0 0 0-.2-1.1l-.1-.1A2 2 0 1 1 6.2 3.3l.1.1a1 1 0 0 0 1.1.2 8 8 0 0 1 2-.6 1 1 0 0 0 .8-.9V2a2 2 0 1 1 4 0v.2a1 1 0 0 0 .8.9 8 8 0 0 1 2 .6 1 1 0 0 0 1.1-.2l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1 1 0 0 0-.2 1.1 8 8 0 0 1 .6 2 1 1 0 0 0 .9.8H22a2 2 0 1 1 0 4h-.2a1 1 0 0 0-.9.8 8 8 0 0 1-.6 2z" stroke="#111" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </button>
+        <!-- Student photo -->
+        <img src="student.jpg" alt="Student Photo" class="avatar" onerror="this.src='logo.png'">
+        <!-- Logout -->
         <button id="logoutBtn" class="logout-btn">Logout</button>
       </div>
     </div>
@@ -63,13 +109,60 @@
           </div>
         </section>
 
-        <!-- Messages -->
+        <!-- Turkish Messages -->
         <section class="card" style="margin-top:16px">
-          <h3 class="section-title">Announcements</h3>
-          <ul style="margin-top:8px;color:#1f2937;line-height:1.6">
-            <li>Welcome to Semester 5! Check your registered courses.</li>
-            <li>Midterm schedule will be announced soon.</li>
-            <li>Library hours updated: Mon–Fri 08:00–18:00.</li>
+          <h3 class="section-title">Üniversite Duyuruları</h3>
+          <ul class="msg-list">
+            <li>
+              <div class="msg-title">Kayıt Yenileme Duyurusu</div>
+              <div>Güz dönemi kayıt yenileme işlemleri 25–29 Eylül arasında yapılacaktır.</div>
+              <div class="msg-date">2025-09-10</div>
+            </li>
+            <li>
+              <div class="msg-title">Kütüphane Çalışma Saatleri</div>
+              <div>Kütüphane hafta içi 08:00–18:00 saatleri arasında hizmet vermektedir.</div>
+              <div class="msg-date">2025-09-08</div>
+            </li>
+            <li>
+              <div class="msg-title">Staj Bilgilendirme Toplantısı</div>
+              <div>Yaz stajı bilgilendirme semineri 20 Eylül’de C-210 salonunda yapılacaktır.</div>
+              <div class="msg-date">2025-09-06</div>
+            </li>
+            <li>
+              <div class="msg-title">Ders Ekle/Sil Haftası</div>
+              <div>Ders ekle/sil işlemleri 02–06 Ekim tarihleri arasında ISAP üzerinden yapılacaktır.</div>
+              <div class="msg-date">2025-09-05</div>
+            </li>
+            <li>
+              <div class="msg-title">Yabancı Dil Muafiyet Sınavı</div>
+              <div>Muafiyet sınavı sonuçları öğrenci bilgi sisteminde ilan edilmiştir.</div>
+              <div class="msg-date">2025-09-04</div>
+            </li>
+            <li>
+              <div class="msg-title">Burs Başvuruları</div>
+              <div>2025–2026 burs başvuruları 1 Ekim’e kadar online olarak alınacaktır.</div>
+              <div class="msg-date">2025-09-03</div>
+            </li>
+            <li>
+              <div class="msg-title">Akademik Takvim</div>
+              <div>Güncellenmiş akademik takvim web sitemizde yayımlanmıştır.</div>
+              <div class="msg-date">2025-09-02</div>
+            </li>
+            <li>
+              <div class="msg-title">Laboratuvar Güvenliği Eğitimi</div>
+              <div>Tüm öğrencilerin çevrimiçi güvenlik modülünü tamamlaması gerekmektedir.</div>
+              <div class="msg-date">2025-09-01</div>
+            </li>
+            <li>
+              <div class="msg-title">Mezuniyet Projesi Başvuruları</div>
+              <div>Bitirme projesi danışman başvuruları 15 Ekim’de kapanacaktır.</div>
+              <div class="msg-date">2025-08-30</div>
+            </li>
+            <li>
+              <div class="msg-title">Spor Tesisleri</div>
+              <div>Spor salonu üyelikleri öğrenci işleri üzerinden yenilenebilir.</div>
+              <div class="msg-date">2025-08-29</div>
+            </li>
           </ul>
         </section>
       </main>
@@ -77,7 +170,7 @@
   </div>
 
   <script>
-    // Check session
+    // Session guard
     (function(){
       try {
         const u = localStorage.getItem('sessionUser');
@@ -85,10 +178,15 @@
       } catch(e){}
     })();
 
-    // Logout button
+    // Logout
     document.getElementById('logoutBtn')?.addEventListener('click', function(){
       try{ localStorage.removeItem('sessionUser'); }catch(e){}
       window.location.href = 'login.html';
+    });
+
+    // Settings (demo)
+    document.getElementById('settingsBtn')?.addEventListener('click', function(){
+      alert('Settings panel coming soon.');
     });
   </script>
 </body>
