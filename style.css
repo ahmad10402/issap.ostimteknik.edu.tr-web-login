@@ -67,3 +67,53 @@ button:hover {
   color: red;
   font-size: 14px;
 }
+.dashboard-container {
+  max-width: 900px;
+  margin: 40px auto;
+  background: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+
+.dashboard-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.dashboard-header h2 {
+  color: #8b0f2b;
+}
+
+.dashboard-main h3 {
+  margin-top: 0;
+}
+
+.status.active {
+  color: green;
+  font-weight: bold;
+  margin: 10px 0 20px;
+}
+
+.dashboard-nav {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.dashboard-nav a {
+  display: block;
+  background: #8b0f2b;
+  color: #fff;
+  text-align: center;
+  padding: 12px;
+  border-radius: 6px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.dashboard-nav a:hover {
+  background: #700c22;
+}
