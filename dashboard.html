@@ -2,76 +2,142 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>OSTIM Technical University - OSTIM Technical University</title>
+  <title>Dashboard - OSTIM</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="style.css">
   <style>
     /* Top bar */
-    .topbar {
-      display:flex;align-items:center;gap:12px;justify-content:space-between;
-    }
+    .topbar { display:flex;align-items:center;gap:12px;justify-content:space-between; }
     .topbar-left { display:flex;align-items:center;gap:12px }
-    .topbar-right { display:flex;align-items:center;gap:10px }
-    .logo-top { width:44px;height:auto }
+    .topbar-right { display:flex;align-items:center;gap:12px }
+    .logo-top { width:60px;height:auto }                           /* شعار أكبر */
+
+    /* buttons / icons */
     .icon-btn {
       display:inline-flex;align-items:center;justify-content:center;
-      width:38px;height:38px;border:1px solid var(--border);border-radius:10px;
-      background:#fff;cursor:pointer;
+      width:50px;height:50px;border:1px solid var(--border);border-radius:14px;
+      background:#fff;cursor:pointer;transition:background .15s ease;
     }
     .icon-btn:hover { background:#fafafa }
     .badge {
-      min-width:18px;height:18px;border-radius:9px;background:#8b0f2b;color:#fff;
-      font-size:11px;display:inline-flex;align-items:center;justify-content:center;
-      padding:0 6px;margin-left:6px
+      min-width:20px;height:20px;border-radius:10px;background:#8b0f2b;color:#fff;
+      font-size:12px;display:inline-flex;align-items:center;justify-content:center;padding:0 6px;margin-left:6px
     }
-    .avatar {
-      width:40px;height:40px;border-radius:50%;object-fit:cover;border:1px solid var(--border)
-    }
+    .avatar { width:55px;height:55px;border-radius:50%;object-fit:cover;border:1px solid var(--border) } /* صورة أكبر */
+    .logout-btn { background:#8b0f2b;color:#fff;padding:10px 16px;border:none;border-radius:8px;cursor:pointer }
+
     /* widgets */
-    .widgets {
-      display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px
-    }
+    .widgets { display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px }
     .widgets .card { text-align:center }
     .widgets .title { color:#6b7280;font-size:13px;margin-bottom:6px }
     .widgets .value { font-size:20px;font-weight:800;color:#8b0f2b }
+
     /* messages */
     .msg-list { list-style:none;margin:10px 0 0;padding:0 }
     .msg-list li { padding:10px;border:1px solid var(--border);border-radius:10px;margin-bottom:8px;background:#fff }
     .msg-date { color:#6b7280;font-size:12px }
     .msg-title { font-weight:700 }
-    .logout-btn { background:#8b0f2b;color:#fff;padding:8px 14px;border:none;border-radius:6px;cursor:pointer }
+
+    /* SETTINGS DEMO */
+    .icon-gear { width:28px;height:28px }                          /* أيقونة إعدادات أكبر */
+    .icon-gear path, .icon-gear circle { stroke:#8b0f2b }
+    .settings-pop { position:relative }
+    .settings-menu {
+      position:absolute;top:56px;right:0;width:260px;background:#fff;border:1px solid var(--border);
+      border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,.1);padding:10px;display:none;z-index:100;
+    }
+    .settings-menu.open { display:block }
+    .settings-item { padding:10px;border-radius:10px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:10px }
+    .settings-item:hover { background:#fafafa }
+    .settings-item .lbl { font-weight:600;font-size:14px;color:#111 }
+    .settings-item .sub { font-size:12px;color:#6b7280 }
+    .divider { height:1px;background:var(--border);margin:8px 0 }
+    .switch { width:38px;height:22px;background:#e5e7eb;border-radius:999px;position:relative }
+    .switch::after{ content:"";position:absolute;top:2px;left:2px;width:18px;height:18px;background:#fff;border:1px solid #ccc;border-radius:50%;transition:left .2s }
+    .switch.on { background:#8b0f2b }
+    .switch.on::after{ left:18px }
+    .lang-btns{ display:flex;gap:8px;margin-left:auto }
+    .lang-btns button{
+      padding:6px 10px;font-size:12px;border:1px solid var(--border);border-radius:8px;background:#fff;cursor:pointer;
+    }
+    .lang-btns button.active{ border-color:#8b0f2b;color:#8b0f2b;font-weight:600 }
+
     @media (max-width:900px){ .widgets{ grid-template-columns:1fr } }
   </style>
 </head>
 <body>
   <div class="container">
 
-    <!-- Top Bar -->
+    <!-- Top Bar (بدون نص Student Portal) -->
     <div class="card topbar">
       <div class="topbar-left">
         <img src="logo.png" alt="Logo" class="logo-top">
-       <h2>Ostim Student Portal</h2>
       </div>
       <div class="topbar-right">
-        <!-- Messages button with counter -->
-        <button class="icon-btn" title="Messages">
-          <!-- mail icon -->
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M4 6h16a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1zm0 0l8 6 8-6" stroke="#8b0f2b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <!-- Messages (أيقونة أكبر) -->
+        <button class="icon-btn" title="Messages" aria-label="Messages">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M4 6h16a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1zm0 0l8 6 8-6"
+                  stroke="#8b0f2b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
           <span class="badge" id="msgCount">10</span>
         </button>
-        <!-- Settings button -->
-        <!-- Settings button -->
-<button class="icon-btn" title="Settings" id="settingsBtn">
-  <svg class="icon-gear" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-    <circle cx="12" cy="12" r="3.25" stroke="#8b0f2b" stroke-width="2"/>
-    <path stroke="#8b0f2b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-      d="M19.4 15a1 1 0 0 0 .2 1.1l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1 1 0 0 0-1.1-.2 8 8 0 0 1-2 .6 1 1 0 0 0-.8.9V21a2 2 0 1 1-4 0v-.2a1 1 0 0 0-.8-.9 8 8 0 0 1-2-.6 1 1 0 0 0-1.1.2l-.1.1A2 2 0 1 1 3.3 16l.1-.1a1 1 0 0 0 .2-1.1 8 8 0 0 1-.6-2 1 1 0 0 0-.9-.8H2a2 2 0 1 1 0-4h.2a1 1 0 0 0 .9-.8 8 8 0 0 1 .6-2 1 1 0 0 0-.2-1.1l-.1-.1A2 2 0 1 1 6.2 3.3l.1.1a1 1 0 0 0 1.1.2 8 8 0 0 1 2-.6 1 1 0 0 0 .8-.9V2a2 2 0 1 1 4 0v.2a1 1 0 0 0 .8.9 8 8 0 0 1 2 .6 1 1 0 0 0 1.1-.2l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1 1 0 0 0-.2 1.1 8 8 0 0 1 .6 2 1 1 0 0 0 .9.8H22a2 2 0 1 1 0 4h-.2a1 1 0 0 0-.9.8 8 8 0 0 1-.6 2z"/>
-  </svg>
-</button>
 
-        <!-- Student photo -->
+        <!-- SETTINGS DEMO (أيقونة أكبر) -->
+        <div class="settings-pop">
+          <button class="icon-btn" title="Settings" aria-haspopup="true" aria-expanded="false" id="settingsBtn">
+            <svg class="icon-gear" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <circle cx="12" cy="12" r="3.25" stroke-width="2"/>
+              <path stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                d="M19.4 15a1 1 0 0 0 .2 1.1l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1 1 0 0 0-1.1-.2 8 8 0 0 1-2 .6 1 1 0 0 0-.8.9V21a2 2 0 1 1-4 0v-.2a1 1 0 0 0-.8-.9 8 8 0 0 1-2-.6 1 1 0 0 0-1.1.2l-.1.1A2 2 0 1 1 3.3 16l.1-.1a1 1 0 0 0 .2-1.1 8 8 0 0 1-.6-2 1 1 0 0 0-.9-.8H2a2 2 0 1 1 0-4h.2a1 1 0 0 0 .9-.8 8 8 0 0 1 .6-2 1 1 0 0 0-.2-1.1l-.1-.1A2 2 0 1 1 6.2 3.3l.1.1a1 1 0 0 0 1.1.2 8 8 0 0 1 2-.6 1 1 0 0 0 .8-.9V2a2 2 0 1 1 4 0v.2a1 1 0 0 0 .8.9 8 8 0 0 1 2 .6 1 1 0 0 0 1.1-.2l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1 1 0 0 0-.2 1.1 8 8 0 0 1 .6 2 1 1 0 0 0 .9.8H22a2 2 0 1 1 0 4h-.2a1 1 0 0 0-.9.8 8 8 0 0 1-.6 2z"/>
+            </svg>
+          </button>
+
+          <div class="settings-menu" role="menu" aria-labelledby="settingsBtn" id="settingsMenu">
+            <div class="settings-item" id="themeToggle">
+              <div>
+                <div class="lbl">Theme</div>
+                <div class="sub">Light / Dark</div>
+              </div>
+              <div class="switch" id="themeSwitch"></div>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="settings-item" id="langSelect">
+              <div>
+                <div class="lbl">Language</div>
+                <div class="sub">Interface Language</div>
+              </div>
+              <div class="lang-btns">
+                <button data-lang="tr" class="active">TR</button>
+                <button data-lang="en">EN</button>
+              </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="settings-item" id="notifToggle">
+              <div>
+                <div class="lbl">Notifications</div>
+                <div class="sub">Announcements & messages</div>
+              </div>
+              <div class="switch" id="notifSwitch"></div>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="settings-item" id="changePass">
+              <div>
+                <div class="lbl">Change Password</div>
+                <div class="sub">Update login password</div>
+              </div>
+              <span style="font-size:12px;color:#6b7280">›</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Student photo (أكبر) -->
         <img src="student.jpg" alt="Student Photo" class="avatar" onerror="this.src='logo.png'">
         <!-- Logout -->
         <button id="logoutBtn" class="logout-btn">Logout</button>
@@ -97,74 +163,25 @@
       <main>
         <!-- Widgets -->
         <section class="widgets">
-          <div class="card">
-            <div class="title">Status</div>
-            <div class="value">Active</div>
-          </div>
-          <div class="card">
-            <div class="title">Completed Credits</div>
-            <div class="value">83</div>
-          </div>
-          <div class="card">
-            <div class="title">GPA</div>
-            <div class="value">3.64</div>
-          </div>
+          <div class="card"><div class="title">Status</div><div class="value">Active</div></div>
+          <div class="card"><div class="title">Completed Credits</div><div class="value">83</div></div>
+          <div class="card"><div class="title">GPA</div><div class="value">3.64</div></div>
         </section>
 
         <!-- Turkish Messages -->
         <section class="card" style="margin-top:16px">
           <h3 class="section-title">Üniversite Duyuruları</h3>
           <ul class="msg-list">
-            <li>
-              <div class="msg-title">Kayıt Yenileme Duyurusu</div>
-              <div>Güz dönemi kayıt yenileme işlemleri 25–29 Eylül arasında yapılacaktır.</div>
-              <div class="msg-date">2025-09-10</div>
-            </li>
-            <li>
-              <div class="msg-title">Kütüphane Çalışma Saatleri</div>
-              <div>Kütüphane hafta içi 08:00–18:00 saatleri arasında hizmet vermektedir.</div>
-              <div class="msg-date">2025-09-08</div>
-            </li>
-            <li>
-              <div class="msg-title">Staj Bilgilendirme Toplantısı</div>
-              <div>Yaz stajı bilgilendirme semineri 20 Eylül’de C-210 salonunda yapılacaktır.</div>
-              <div class="msg-date">2025-09-06</div>
-            </li>
-            <li>
-              <div class="msg-title">Ders Ekle/Sil Haftası</div>
-              <div>Ders ekle/sil işlemleri 02–06 Ekim tarihleri arasında ISAP üzerinden yapılacaktır.</div>
-              <div class="msg-date">2025-09-05</div>
-            </li>
-            <li>
-              <div class="msg-title">Yabancı Dil Muafiyet Sınavı</div>
-              <div>Muafiyet sınavı sonuçları öğrenci bilgi sisteminde ilan edilmiştir.</div>
-              <div class="msg-date">2025-09-04</div>
-            </li>
-            <li>
-              <div class="msg-title">Burs Başvuruları</div>
-              <div>2025–2026 burs başvuruları 1 Ekim’e kadar online olarak alınacaktır.</div>
-              <div class="msg-date">2025-09-03</div>
-            </li>
-            <li>
-              <div class="msg-title">Akademik Takvim</div>
-              <div>Güncellenmiş akademik takvim web sitemizde yayımlanmıştır.</div>
-              <div class="msg-date">2025-09-02</div>
-            </li>
-            <li>
-              <div class="msg-title">Laboratuvar Güvenliği Eğitimi</div>
-              <div>Tüm öğrencilerin çevrimiçi güvenlik modülünü tamamlaması gerekmektedir.</div>
-              <div class="msg-date">2025-09-01</div>
-            </li>
-            <li>
-              <div class="msg-title">Mezuniyet Projesi Başvuruları</div>
-              <div>Bitirme projesi danışman başvuruları 15 Ekim’de kapanacaktır.</div>
-              <div class="msg-date">2025-08-30</div>
-            </li>
-            <li>
-              <div class="msg-title">Spor Tesisleri</div>
-              <div>Spor salonu üyelikleri öğrenci işleri üzerinden yenilenebilir.</div>
-              <div class="msg-date">2025-08-29</div>
-            </li>
+            <li><div class="msg-title">Kayıt Yenileme Duyurusu</div><div>Güz dönemi kayıt yenileme işlemleri 25–29 Eylül arasında yapılacaktır.</div><div class="msg-date">2025-09-10</div></li>
+            <li><div class="msg-title">Kütüphane Çalışma Saatleri</div><div>Kütüphane hafta içi 08:00–18:00 saatleri arasında hizmet vermektedir.</div><div class="msg-date">2025-09-08</div></li>
+            <li><div class="msg-title">Staj Bilgilendirme Toplantısı</div><div>Yaz stajı bilgilendirme semineri 20 Eylül’de C-210 salonunda yapılacaktır.</div><div class="msg-date">2025-09-06</div></li>
+            <li><div class="msg-title">Ders Ekle/Sil Haftası</div><div>Ders ekle/sil işlemleri 02–06 Ekim tarihleri arasında ISAP üzerinden yapılacaktır.</div><div class="msg-date">2025-09-05</div></li>
+            <li><div class="msg-title">Yabancı Dil Muafiyet Sınavı</div><div>Muafiyet sınavı sonuçları öğrenci bilgi sisteminde ilan edilmiştir.</div><div class="msg-date">2025-09-04</div></li>
+            <li><div class="msg-title">Burs Başvuruları</div><div>2025–2026 burs başvuruları 1 Ekim’e kadar online olarak alınacaktır.</div><div class="msg-date">2025-09-03</div></li>
+            <li><div class="msg-title">Akademik Takvim</div><div>Güncellenmiş akademik takvim web sitemizde yayımlanmıştır.</div><div class="msg-date">2025-09-02</div></li>
+            <li><div class="msg-title">Laboratuvar Güvenliği Eğitimi</div><div>Tüm öğrencilerin çevrimiçi güvenlik modülünü tamamlaması gerekmektedir.</div><div class="msg-date">2025-09-01</div></li>
+            <li><div class="msg-title">Mezuniyet Projesi Başvuruları</div><div>Bitirme projesi danışman başvuruları 15 Ekim’de kapanacaktır.</div><div class="msg-date">2025-08-30</div></li>
+            <li><div class="msg-title">Spor Tesisleri</div><div>Spor salonu üyelikleri öğrenci işleri üzerinden yenilenebilir.</div><div class="msg-date">2025-08-29</div></li>
           </ul>
         </section>
       </main>
@@ -174,10 +191,7 @@
   <script>
     // Session guard
     (function(){
-      try {
-        const u = localStorage.getItem('sessionUser');
-        if(!u){ window.location.href = 'login.html'; return; }
-      } catch(e){}
+      try { if(!localStorage.getItem('sessionUser')){ window.location.href = 'login.html'; } } catch(e){}
     })();
 
     // Logout
@@ -186,41 +200,28 @@
       window.location.href = 'login.html';
     });
 
-  <!-- SETTINGS DEMO -->
-<div class="settings-pop">
-  <button class="icon-btn" title="Settings" id="settingsBtn">
-    <svg class="icon-gear" viewBox="0 0 24 24" fill="none">
-      <circle cx="12" cy="12" r="3.25" stroke-width="2"/>
-      <path stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-        d="M19.4 15a1 1 0 0 0 .2 1.1l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1 1 0 0 0-1.1-.2 8 8 0 0 1-2 .6 1 1 0 0 0-.8.9V21a2 2 0 1 1-4 0v-.2a1 1 0 0 0-.8-.9 8 8 0 0 1-2-.6 1 1 0 0 0-1.1.2l-.1.1A2 2 0 1 1 3.3 16l.1-.1a1 1 0 0 0 .2-1.1 8 8 0 0 1-.6-2 1 1 0 0 0-.9-.8H2a2 2 0 1 1 0-4h.2a1 1 0 0 0 .9-.8 8 8 0 0 1 .6-2 1 1 0 0 0-.2-1.1l-.1-.1A2 2 0 1 1 6.2 3.3l.1.1a1 1 0 0 0 1.1.2 8 8 0 0 1 2-.6 1 1 0 0 0 .8-.9V2a2 2 0 1 1 4 0v.2a1 1 0 0 0 .8.9 8 8 0 0 1 2 .6 1 1 0 0 0 1.1-.2l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1 1 0 0 0-.2 1.1 8 8 0 0 1 .6 2 1 1 0 0 0 .9.8H22a2 2 0 1 1 0 4h-.2a1 1 0 0 0-.9.8 8 8 0 0 1-.6 2z"/>
-    </svg>
-  </button>
+    // SETTINGS DEMO logic
+    (function(){
+      const btn = document.getElementById('settingsBtn');
+      const menu = document.getElementById('settingsMenu');
+      const swTheme = document.getElementById('themeSwitch');
+      const swNotif = document.getElementById('notifSwitch');
+      const langBtns = document.querySelectorAll('.lang-btns button');
 
-  <div class="settings-menu" id="settingsMenu">
-    <div class="settings-item" id="themeToggle">
-      <div class="lbl">Theme</div>
-      <div class="sub">Light / Dark</div>
-      <div class="switch" id="themeSwitch"></div>
-    </div>
-    <div class="divider"></div>
-    <div class="settings-item" id="langSelect">
-      <div class="lbl">Language</div>
-      <div class="sub">Interface Language</div>
-      <div class="lang-btns">
-        <button data-lang="tr" class="active">TR</button>
-        <button data-lang="en">EN</button>
-      </div>
-    </div>
-    <div class="divider"></div>
-    <div class="settings-item" id="notifToggle">
-      <div class="lbl">Notifications</div>
-      <div class="sub">Announcements & messages</div>
-      <div class="switch" id="notifSwitch"></div>
-    </div>
-    <div class="divider"></div>
-    <div class="settings-item" id="changePass">
-      <div class="lbl">Change Password</div>
-      <div class="sub">Update login password</div>
-    </div>
-  </div>
-</div>
+      btn.addEventListener('click', (e)=>{ e.stopPropagation(); menu.classList.toggle('open'); });
+      document.addEventListener('click', ()=> menu.classList.remove('open'));
+
+      swTheme.addEventListener('click', ()=>{ swTheme.classList.toggle('on'); alert('Theme: ' + (swTheme.classList.contains('on')?'Dark':'Light')); });
+      swNotif.addEventListener('click', ()=>{ swNotif.classList.toggle('on'); alert('Notifications ' + (swNotif.classList.contains('on')?'enabled':'disabled')); });
+
+      langBtns.forEach(b=> b.addEventListener('click', ()=>{
+        langBtns.forEach(x=>x.classList.remove('active'));
+        b.classList.add('active');
+        alert('Language set: ' + b.dataset.lang.toUpperCase());
+      }));
+
+      document.getElementById('changePass').addEventListener('click', ()=> alert('Password change page coming soon.'));
+    })();
+  </script>
+</body>
+</html>
