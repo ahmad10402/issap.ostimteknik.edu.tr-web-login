@@ -1,42 +1,113 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
   <meta charset="UTF-8">
-  <title>ISAP Login - OSTIM Technical University</title>
+  <title>OBS Login - OSTIM Teknik Üniversitesi</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      margin:0;
+      font-family:Arial, sans-serif;
+      background:#f4f6f9;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      height:100vh;
+    }
+    .login-box {
+      width:360px;
+      background:#fff;
+      border:1px solid #ddd;
+      border-radius:8px;
+      padding:30px 25px;
+      box-shadow:0 4px 12px rgba(0,0,0,.1);
+      text-align:center;
+    }
+    .login-box img {
+      width:90px;
+      margin-bottom:15px;
+    }
+    .login-box h2 {
+      margin:0 0 20px;
+      font-size:18px;
+      color:#333;
+    }
+    .form-group {
+      margin-bottom:15px;
+      text-align:left;
+    }
+    .form-group label {
+      font-size:13px;
+      color:#444;
+      margin-bottom:6px;
+      display:block;
+    }
+    .form-group input {
+      width:100%;
+      padding:10px;
+      border:1px solid #ccc;
+      border-radius:4px;
+      font-size:14px;
+    }
+    .btn {
+      display:block;
+      width:100%;
+      padding:10px;
+      background:#007bff;
+      border:none;
+      border-radius:4px;
+      color:#fff;
+      font-weight:bold;
+      font-size:14px;
+      cursor:pointer;
+    }
+    .btn:hover { background:#0056b3; }
+    .links {
+      margin-top:15px;
+      font-size:12px;
+      color:#666;
+      display:flex;
+      justify-content:space-between;
+    }
+    .links a { color:#007bff; text-decoration:none; }
+    .links a:hover { text-decoration:underline; }
+  </style>
 </head>
 <body>
-  <div class="login-container">
-    <div class="login-box">
-      <img src="logo.png" alt="Ostim University Logo" class="logo">
-      <h2>Student Login</h2>
-      <form id="loginForm">
-        <label for="username">Username</label>
-        <input type="text" id="username" placeholder="Enter Student ID" required>
+  <div class="login-box">
+    <img src="logo.png" alt="OSTIM Logo">
+    <h2>Öğrenci Bilgi Sistemi</h2>
 
-        <label for="password">Password</label>
-        <input type="password" id="password" placeholder="Enter Password" required>
+    <form id="loginForm">
+      <div class="form-group">
+        <label for="user">Kullanıcı Adı</label>
+        <input type="text" id="user" placeholder="Öğrenci Numaranız" required>
+      </div>
+      <div class="form-group">
+        <label for="pass">Şifre</label>
+        <input type="password" id="pass" placeholder="Parolanız" required>
+      </div>
+      <button type="submit" class="btn">Giriş</button>
+    </form>
 
-        <button type="submit">Login</button>
-        <p id="error" class="error"></p>
-      </form>
+    <div class="links">
+      <a href="#">Şifremi Unuttum</a>
+      <a href="#">English</a>
     </div>
   </div>
 
   <script>
-    const form = document.getElementById('loginForm');
-    const errorMsg = document.getElementById('error');
-
-    form.addEventListener('submit', function(e) {
+    // Demo login
+    document.getElementById('loginForm').addEventListener('submit', function(e){
       e.preventDefault();
-      const user = document.getElementById('username').value.trim();
-      const pass = document.getElementById('password').value;
-
-      if (user === "220208873" && pass === "AHMAD2022.COM") {
-        localStorage.setItem("sessionUser", user);
+      const u = document.getElementById('user').value;
+      const p = document.getElementById('pass').value;
+      if(u === "220208873" && p === "AHMAD2022.COM"){
+        localStorage.setItem('sessionUser', u);
         window.location.href = "dashboard.html";
       } else {
-        errorMsg.textContent = "Invalid username or password!";
+        alert("Geçersiz kullanıcı adı veya şifre!");
       }
     });
   </script>
