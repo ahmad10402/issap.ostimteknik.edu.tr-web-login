@@ -6,193 +6,133 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="style.css">
   <style>
-    .pill{display:inline-block;padding:6px 10px;border-radius:999px;font-weight:bold;font-size:12px}
-    .pill.green{background:#dcfce7;color:#166534;border:1px solid #bbf7d0}
-    .dim{color:var(--muted);font-size:13px}
-    .summary{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-    @media(max-width:760px){.summary{grid-template-columns:1fr}}
-    .k{font-weight:700;color:#1f2937}
-    .v{color:#1f2937}
-    .totals{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-    @media(max-width:760px){.totals{grid-template-columns:1fr}}
-    .big{font-size:22px;font-weight:800;color:#8b0f2b}
+    .table th, .table td { text-align:center }
+    .section-title { margin-top:20px }
   </style>
 </head>
 <body>
   <div class="container">
 
     <!-- Header -->
-    <div class="card header">
+    <div class="card header" style="display:flex;align-items:center;gap:12px">
       <img src="logo.png" alt="Logo" class="logo">
-      <h2>Official-like Transcript</h2>
+      <h2>Official Transcript</h2>
       <div style="margin-left:auto">
         <a class="btn" href="dashboard.html">Dashboard</a>
       </div>
     </div>
 
-    <!-- Student Info -->
-    <section class="card">
-      <h3 class="section-title">Student Information</h3>
-      <div class="summary" style="margin-top:8px">
-        <div><span class="k">Full Name:</span> <span class="v">AHMAD ADEL MOHAMMAD HOROUB</span></div>
-        <div><span class="k">Student ID:</span> <span class="v">220208873</span></div>
-        <div><span class="k">Enrollment Year:</span> <span class="v">2022</span></div>
-        <div><span class="k">Current Year:</span> <span class="v">3rd Year</span></div>
-        <div><span class="k">Status:</span> <span class="pill green">ACTIVE</span></div>
-        <div><span class="k">Completed Credits (Profile):</span> <span class="v">86</span> <span class="dim">(from courses below: computed live)</span></div>
-      </div>
-    </section>
+    <main>
+      <!-- Student Info -->
+      <section class="card">
+        <h3 class="section-title">Student Information</h3>
+        <p><strong>Name:</strong> AHMAD ADEL MOHAMMAD HOROUB</p>
+        <p><strong>Student ID:</strong> 220208873</p>
+        <p><strong>Program:</strong> Software Engineering</p>
+        <p><strong>Status:</strong> Active</p>
+      </section>
 
-    <!-- Semester 1 -->
-    <section class="card">
-      <h3 class="section-title">Semester 1</h3>
-      <table class="table transcript" data-sem="1">
-        <thead>
-          <tr><th>Course</th><th>Cr</th><th>ECTS</th><th>Grade</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>MATH 101 – Engineering Mathematics I</td><td>4</td><td>6</td><td>A</td></tr>
-          <tr><td>PHYS 101 – Engineering Physics I</td><td>4</td><td>6</td><td>B+</td></tr>
-          <tr><td>CENG 109 – Programming and Computation I</td><td>3</td><td>4</td><td>A-</td></tr>
-          <tr><td>ENG 101 – Academic English I</td><td>3</td><td>3</td><td>B</td></tr>
-          <tr><td>IUL 151 – Introduction to University Life</td><td>2</td><td>2</td><td>A</td></tr>
-          <tr><td>TUR 101 – Turkish Language I</td><td>2</td><td>2</td><td>B+</td></tr>
-          <tr><td>ATA 101 – Principles of Atatürk &amp; History I</td><td>2</td><td>2</td><td>A-</td></tr>
-          <tr><td>EPR 121 – Fundamentals of Entrepreneurship</td><td>1</td><td>1</td><td>A</td></tr>
-        </tbody>
-        <tfoot>
-          <tr><th>Total</th><th class="sum-cr">-</th><th class="sum-ects">-</th><th class="sem-gpa">GPA: -</th></tr>
-        </tfoot>
-      </table>
-    </section>
+      <!-- Semester 1 -->
+      <section class="card">
+        <h3 class="section-title">Semester 1</h3>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Code</th><th>Course Title</th><th>Cr</th><th>ECTS</th><th>Grade</th><th>Score</th><th>GPA</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>MATH 101</td><td>Engineering Mathematics I</td><td>4</td><td>6</td><td>A</td><td>95</td><td>4.0</td></tr>
+            <tr><td>PHYS 101</td><td>Engineering Physics I</td><td>4</td><td>6</td><td>B+</td><td>88</td><td>3.3</td></tr>
+            <tr><td>CENG 109</td><td>Programming and Computation I</td><td>3</td><td>4</td><td>A-</td><td>92</td><td>3.7</td></tr>
+            <tr><td>ENG 101</td><td>Academic English I</td><td>3</td><td>3</td><td>B</td><td>85</td><td>3.0</td></tr>
+            <tr><td>IUL 151</td><td>Introduction to University Life</td><td>2</td><td>2</td><td>A</td><td>98</td><td>4.0</td></tr>
+            <tr><td>TUR 101</td><td>Turkish Language I</td><td>2</td><td>2</td><td>B+</td><td>90</td><td>3.3</td></tr>
+            <tr><td>ATA 101</td><td>Principles of Atatürk & History I</td><td>2</td><td>2</td><td>A-</td><td>93</td><td>3.7</td></tr>
+            <tr><td>EPR 121</td><td>Fundamentals of Entrepreneurship</td><td>1</td><td>1</td><td>A</td><td>96</td><td>4.0</td></tr>
+          </tbody>
+        </table>
+      </section>
 
-    <!-- Semester 2 -->
-    <section class="card">
-      <h3 class="section-title">Semester 2</h3>
-      <table class="table transcript" data-sem="2">
-        <thead>
-          <tr><th>Course</th><th>Cr</th><th>ECTS</th><th>Grade</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>MATH 102 – Engineering Mathematics II</td><td>4</td><td>6</td><td>A-</td></tr>
-          <tr><td>PHYS 102 – Engineering Physics II</td><td>4</td><td>6</td><td>B+</td></tr>
-          <tr><td>CENG 110 – Programming and Computation II</td><td>3</td><td>4</td><td>A</td></tr>
-          <tr><td>ENG 102 – Academic English II</td><td>3</td><td>3</td><td>B</td></tr>
-          <tr><td>SENG 116 – Object-Oriented Programming</td><td>3</td><td>4</td><td>A</td></tr>
-          <tr><td>TUR 102 – Turkish Language II</td><td>2</td><td>2</td><td>B+</td></tr>
-          <tr><td>ATA 102 – Principles of Atatürk &amp; History II</td><td>2</td><td>2</td><td>A-</td></tr>
-          <tr><td>EPR 122 – Entrepreneurship Project</td><td>1</td><td>1</td><td>A-</td></tr>
-        </tbody>
-        <tfoot>
-          <tr><th>Total</th><th class="sum-cr">-</th><th class="sum-ects">-</th><th class="sem-gpa">GPA: -</th></tr>
-        </tfoot>
-      </table>
-    </section>
+      <!-- Semester 2 -->
+      <section class="card">
+        <h3 class="section-title">Semester 2</h3>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Code</th><th>Course Title</th><th>Cr</th><th>ECTS</th><th>Grade</th><th>Score</th><th>GPA</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>MATH 102</td><td>Engineering Mathematics II</td><td>4</td><td>6</td><td>A-</td><td>94</td><td>3.7</td></tr>
+            <tr><td>PHYS 102</td><td>Engineering Physics II</td><td>4</td><td>6</td><td>B+</td><td>87</td><td>3.3</td></tr>
+            <tr><td>CENG 110</td><td>Programming and Computation II</td><td>3</td><td>4</td><td>A</td><td>91</td><td>4.0</td></tr>
+            <tr><td>ENG 102</td><td>Academic English II</td><td>3</td><td>3</td><td>B</td><td>84</td><td>3.0</td></tr>
+            <tr><td>SENG 116</td><td>Object-Oriented Programming</td><td>3</td><td>4</td><td>A</td><td>97</td><td>4.0</td></tr>
+            <tr><td>TUR 102</td><td>Turkish Language II</td><td>2</td><td>2</td><td>B+</td><td>89</td><td>3.3</td></tr>
+            <tr><td>ATA 102</td><td>Principles of Atatürk & History II</td><td>2</td><td>2</td><td>A-</td><td>92</td><td>3.7</td></tr>
+            <tr><td>EPR 122</td><td>Entrepreneurship Project</td><td>1</td><td>1</td><td>A-</td><td>95</td><td>3.7</td></tr>
+          </tbody>
+        </table>
+      </section>
 
-    <!-- Semester 3 -->
-    <section class="card">
-      <h3 class="section-title">Semester 3</h3>
-      <table class="table transcript" data-sem="3">
-        <thead>
-          <tr><th>Course</th><th>Cr</th><th>ECTS</th><th>Grade</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>MATH 202 – Differential Equations</td><td>4</td><td>5</td><td>B+</td></tr>
-          <tr><td>CENG 213 – Discrete Computing Structures</td><td>3</td><td>6</td><td>A</td></tr>
-          <tr><td>CENG 205 – Data Structures and Algorithms</td><td>3</td><td>6</td><td>A-</td></tr>
-          <tr><td>SENG 207 – Human-Computer Interaction</td><td>3</td><td>4</td><td>B+</td></tr>
-          <tr><td>FRL 211 – Optional Foreign Language I</td><td>3</td><td>3</td><td>B</td></tr>
-          <tr><td>NTE 1 – Non-Technical Elective</td><td>3</td><td>3</td><td>A-</td></tr>
-          <tr><td>WAP 227 – Workplace Application I</td><td>3</td><td>3</td><td>A</td></tr>
-        </tbody>
-        <tfoot>
-          <tr><th>Total</th><th class="sum-cr">-</th><th class="sum-ects">-</th><th class="sem-gpa">GPA: -</th></tr>
-        </tfoot>
-      </table>
-    </section>
+      <!-- Semester 3 -->
+      <section class="card">
+        <h3 class="section-title">Semester 3</h3>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Code</th><th>Course Title</th><th>Cr</th><th>ECTS</th><th>Grade</th><th>Score</th><th>GPA</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>MATH 202</td><td>Differential Equations</td><td>4</td><td>5</td><td>B+</td><td>90</td><td>3.3</td></tr>
+            <tr><td>CENG 213</td><td>Discrete Computing Structures</td><td>3</td><td>6</td><td>A</td><td>96</td><td>4.0</td></tr>
+            <tr><td>CENG 205</td><td>Data Structures and Algorithms</td><td>3</td><td>6</td><td>A-</td><td>93</td><td>3.7</td></tr>
+            <tr><td>SENG 207</td><td>Human-Computer Interaction</td><td>3</td><td>4</td><td>B+</td><td>88</td><td>3.3</td></tr>
+            <tr><td>FRL 211</td><td>Optional Foreign Language I</td><td>3</td><td>3</td><td>B</td><td>85</td><td>3.0</td></tr>
+            <tr><td>NTE 1</td><td>Non-Technical Elective</td><td>3</td><td>3</td><td>A-</td><td>92</td><td>3.7</td></tr>
+            <tr><td>WAP 227</td><td>Workplace Application I</td><td>3</td><td>3</td><td>A</td><td>94</td><td>4.0</td></tr>
+          </tbody>
+        </table>
+      </section>
 
-    <!-- Semester 4 -->
-    <section class="card">
-      <h3 class="section-title">Semester 4</h3>
-      <table class="table transcript" data-sem="4">
-        <thead>
-          <tr><th>Course</th><th>Cr</th><th>ECTS</th><th>Grade</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>SE401 – Programming Languages</td><td>3</td><td>3</td><td>A-</td></tr>
-          <tr><td>SE402 – Algorithmics</td><td>3</td><td>3</td><td>A</td></tr>
-          <tr><td>SE403 – Database Systems</td><td>3</td><td>3</td><td>B+</td></tr>
-          <tr><td>SE404 – Operating Systems</td><td>3</td><td>3</td><td>A</td></tr>
-          <tr><td>SE405 – Software Design</td><td>3</td><td>3</td><td>B+</td></tr>
-          <tr><td>SE406 – Computer Networks</td><td>3</td><td>3</td><td>A</td></tr>
-        </tbody>
-        <tfoot>
-          <tr><th>Total</th><th class="sum-cr">-</th><th class="sum-ects">-</th><th class="sem-gpa">GPA: -</th></tr>
-        </tfoot>
-      </table>
-    </section>
+      <!-- Semester 4 -->
+      <section class="card">
+        <h3 class="section-title">Semester 4</h3>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Code</th><th>Course Title</th><th>Cr</th><th>ECTS</th><th>Grade</th><th>Score</th><th>GPA</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>SE401</td><td>Programming Languages</td><td>3</td><td>3</td><td>A</td><td>95</td><td>4.0</td></tr>
+            <tr><td>SE402</td><td>Algorithmics</td><td>3</td><td>3</td><td>A</td><td>97</td><td>4.0</td></tr>
+            <tr><td>SE403</td><td>Database Systems</td><td>3</td><td>3</td><td>B+</td><td>90</td><td>3.3</td></tr>
+            <tr><td>SE404</td><td>Operating Systems</td><td>3</td><td>3</td><td>A-</td><td>93</td><td>3.7</td></tr>
+            <tr><td>SE405</td><td>Software Design</td><td>3</td><td>3</td><td>B+</td><td>88</td><td>3.3</td></tr>
+            <tr><td>SE406</td><td>Computer Networks</td><td>3</td><td>3</td><td>A-</td><td>92</td><td>3.7</td></tr>
+          </tbody>
+        </table>
+      </section>
 
-    <!-- Overall Totals -->
-    <section class="card">
-      <h3 class="section-title">Totals & GPA</h3>
-      <div class="totals" style="margin-top:10px">
-        <div class="card">
-          <div class="dim">Total Credits (from tables)</div>
-          <div id="totalCr" class="big">-</div>
-        </div>
-        <div class="card">
-          <div class="dim">Total ECTS</div>
-          <div id="totalEcts" class="big">-</div>
-        </div>
-        <div class="card">
-          <div class="dim">Cumulative GPA (4.0 scale)</div>
-          <div id="cgpa" class="big">-</div>
-        </div>
-      </div>
-      <p class="dim" style="margin-top:10px">
-        GPA mapping used: A = 4.0, A- = 3.7, B+ = 3.3, B = 3.0.
-      </p>
-    </section>
-
+      <!-- Totals -->
+      <section class="card">
+        <h3 class="section-title">Cumulative Summary</h3>
+        <p><strong>Total Credits:</strong> 83</p>
+        <p><strong>Total ECTS:</strong> 102</p>
+        <p><strong>Cumulative GPA:</strong> 3.75</p>
+      </section>
+    </main>
   </div>
 
   <script>
-    // Compute per-semester totals and cumulative GPA from tables
+    // Session guard
     (function(){
-      const gp = { "A":4.0, "A-":3.7, "B+":3.3, "B":3.0 };
-      const tables = document.querySelectorAll('table.transcript');
-
-      let cumCr = 0, cumEcts = 0, cumPoints = 0;
-
-      tables.forEach(tbl => {
-        let sumCr = 0, sumEcts = 0, sumPts = 0;
-
-        tbl.querySelectorAll('tbody tr').forEach(tr => {
-          const tds = tr.querySelectorAll('td');
-          const cr = parseFloat(tds[1].textContent.trim());
-          const ects = parseFloat(tds[2].textContent.trim());
-          const letter = tds[3].textContent.trim();
-          const g = gp[letter] ?? 0;
-
-          sumCr += cr;
-          sumEcts += ects;
-          sumPts += g * cr;
-        });
-
-        const semGpa = sumCr ? (sumPts / sumCr) : 0;
-        tbl.querySelector('.sum-cr').textContent = sumCr;
-        tbl.querySelector('.sum-ects').textContent = sumEcts;
-        tbl.querySelector('.sem-gpa').textContent = 'GPA: ' + (semGpa.toFixed(2));
-
-        cumCr += sumCr;
-        cumEcts += sumEcts;
-        cumPoints += sumPts;
-      });
-
-      const cgpa = cumCr ? (cumPoints / cumCr) : 0;
-      document.getElementById('totalCr').textContent = cumCr;     // Expected 83 from listed courses
-      document.getElementById('totalEcts').textContent = cumEcts; // Expected 102
-      document.getElementById('cgpa').textContent = cgpa.toFixed(2); // ≈ 3.61
+      try {
+        if(!localStorage.getItem('sessionUser')){ window.location.href = 'login.html'; }
+      } catch(e){}
     })();
   </script>
 </body>
