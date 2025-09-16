@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Selected Courses (Semester 5) - OSTIM Technical University</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+
+    <!-- Header -->
+    <div class="card header">
+      <img src="logo.png" alt="Logo" class="logo">
+      <h2>Selected Courses — Semester 5</h2>
+      <div style="margin-left:auto">
+        <a class="btn" href="dashboard.html">Dashboard</a>
+      </div>
+    </div>
+
+    <div class="grid">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <div class="card">
+          <div class="status">ACTIVE</div>
+          <nav class="nav">
+            <a href="profile.html">Profile</a>
+            <a href="grades.html">Grades</a>
+            <a href="transcript.html">Transcript</a>
+            <a href="schedule.html">Schedule</a>
+            <a href="selected-courses.html" class="active">Selected Courses</a>
+          </nav>
+        </div>
+      </aside>
+
+      <!-- Main -->
+      <main>
+        <section class="card">
+          <h3 class="section-title">Registered Courses — Semester 5</h3>
+          <table class="table" id="coursesTable">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Code</th>
+                <th>Course Title</th>
+                <th>Credits</th>
+                <th>ECTS</th>
+                <th>Type</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>1</td><td>CENG 303</td><td>Operating Systems Design & Construction</td><td>3</td><td>8</td><td>Required</td></tr>
+              <tr><td>2</td><td>SENG 310</td><td>Software Project Management</td><td>3</td><td>7</td><td>Required</td></tr>
+              <tr><td>3</td><td>SENG 312</td><td>Data Mining</td><td>3</td><td>6</td><td>Required</td></tr>
+              <tr><td>4</td><td>WAP 327</td><td>Workplace Application III</td><td>3</td><td>3</td><td>Required</td></tr>
+              <tr><td>5</td><td>LCE 301</td><td>Law Concepts for Engineering</td><td>1</td><td>1</td><td>Required</td></tr>
+              <tr><td>6</td><td>ELEC 1</td><td>Elective Course I</td><td>3</td><td>5</td><td>Elective</td></tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <th colspan="3">Totals</th>
+                <th>16</th>
+                <th>30</th>
+                <th>-</th>
+              </tr>
+            </tfoot>
+          </table>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script>
+    (function(){
+      try{
+        var u = localStorage.getItem('sessionUser');
+        if(!u){ window.location.href = 'login.html'; return; }
+      }catch(e){}
+    })();
+  </script>
+</body>
+</html>
