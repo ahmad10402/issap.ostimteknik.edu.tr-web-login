@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Schedule (Semester 5) - OSTIM Technical University</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .timetable { width:100%; border-collapse:collapse; font-size:14px; }
+    .timetable th, .timetable td { border:1px solid var(--border); padding:12px; background:#fff; vertical-align:top }
+    .timetable th { background:#fafafa; text-align:left }
+    .slot-code { font-weight:800; color:var(--ostim-red); display:block; }
+    .slot-title { display:block; margin-top:4px; }
+    .slot-meta { color:#6b7280; font-size:12px; margin-top:6px; }
+    .room { color:#6b7280; font-size:12px }
+    .legend { color:#6b7280; font-size:13px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- Header -->
+    <div class="card header">
+      <img src="logo.png" alt="Logo" class="logo">
+      <h2>Schedule — Semester 5</h2>
+      <div style="margin-left:auto">
+        <a class="btn" href="dashboard.html">Dashboard</a>
+      </div>
+    </div>
+
+    <div class="grid">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <div class="card">
+          <div class="status">ACTIVE</div>
+          <nav class="nav">
+            <a href="profile.html">Profile</a>
+            <a href="grades.html">Grades</a>
+            <a href="transcript.html">Transcript</a>
+            <a href="schedule.html" class="active">Schedule</a>
+            <a href="selected-courses.html">Selected Courses</a>
+          </nav>
+        </div>
+      </aside>
+
+      <!-- Main -->
+      <main>
+        <section class="card">
+          <h3 class="section-title">Weekly Timetable (S5)</h3>
+          <table class="timetable">
+            <thead>
+              <tr>
+                <th>Time</th>
+                <th>Monday</th>
+                <th>Tuesday</th>
+                <th>Wednesday</th>
+                <th>Thursday</th>
+                <th>Friday</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- 09:00–10:30 -->
+              <tr>
+                <td>09:00–10:30</td>
+                <td>
+                  <span class="slot-code">CENG 303</span>
+                  <span class="slot-title">Operating Systems Design &amp; Construction</span>
+                  <div class="slot-meta">[3 Cr | 8 ECTS]</div>
+                  <div class="room">Room: A-201</div>
+                </td>
+                <td>
+                  <span class="slot-code">SENG 312</span>
+                  <span class="slot-title">Data Mining</span>
+                  <div class="slot-meta">[3 Cr | 6 ECTS]</div>
+                  <div class="room">Room: B-105</div>
+                </td>
+                <td>
+                  <span class="slot-code">CENG 303</span>
+                  <span class="slot-title">Operating Systems Design &amp; Construction</span>
+                  <div class="slot-meta">[3 Cr | 8 ECTS]</div>
+                  <div class="room">Room: A-201</div>
+                </td>
+                <td>
+                  <span class="slot-code">SENG 312</span>
+                  <span class="slot-title">Data Mining</span>
+                  <div class="slot-meta">[3 Cr | 6 ECTS]</div>
+                  <div class="room">Room: B-105</div>
+                </td>
+                <td>
+                  <span class="slot-code">WAP 327</span>
+                  <span class="slot-title">Workplace Application III</span>
+                  <div class="slot-meta">[3 Cr | 3 ECTS]</div>
+                  <div class="room">Room: Workplace</div>
+                </td>
+              </tr>
+
+              <!-- 10:45–12:15 -->
+              <tr>
+                <td>10:45–12:15</td>
+                <td>
+                  <span class="slot-code">SENG 310</span>
+                  <span class="slot-title">Software Project Management</span>
+                  <div class="slot-meta">[3 Cr | 7 ECTS]</div>
+                  <div class="room">Room: C-210</div>
+                </td>
+                <td>
+                  <span class="slot-code">ELEC 1</span>
+                  <span class="slot-title">Elective Course I</span>
+                  <div class="slot-meta">[3 Cr | 5 ECTS]</div>
+                  <div class="room">Room: D-120</div>
+                </td>
+                <td>
+                  <span class="slot-code">SENG 310</span>
+                  <span class="slot-title">Software Project Management</span>
+                  <div class="slot-meta">[3 Cr | 7 ECTS]</div>
+                  <div class="room">Room: C-210</div>
+                </td>
+                <td>
+                  <span class="slot-code">ELEC 1</span>
+                  <span class="slot-title">Elective Course I</span>
+                  <div class="slot-meta">[3 Cr | 5 ECTS]</div>
+                  <div class="room">Room: D-120</div>
+                </td>
+                <td>
+                  <span class="slot-code">WAP 327</span>
+                  <span class="slot-title">Workplace Application III</span>
+                  <div class="slot-meta">[3 Cr | 3 ECTS]</div>
+                  <div class="room">Room: Workplace</div>
+                </td>
+              </tr>
+
+              <!-- 13:15–14:45 -->
+              <tr>
+                <td>13:15–14:45</td>
+                <td>
+                  <span class="slot-code">WAP 327</span>
+                  <span class="slot-title">Workplace Application III</span>
+                  <div class="slot-meta">[3 Cr | 3 ECTS]</div>
+                  <div class="room">Room: Workplace</div>
+                </td>
+                <td>
+                  <span class="slot-code">LCE 301</span>
+                  <span class="slot-title">Law Concepts for Engineering</span>
+                  <div class="slot-meta">[1 Cr | 1 ECTS]</div>
+                  <div class="room">Room: E-104</div>
+                </td>
+                <td>
+                  <span class="slot-code">ELEC 1</span>
+                  <span class="slot-title">Elective Course I</span>
+                  <div class="slot-meta">[3 Cr | 5 ECTS]</div>
+                  <div class="room">Room: D-120</div>
+                </td>
+                <td>
+                  <span class="slot-code">SENG 312</span>
+                  <span class="slot-title">Data Mining (Lab/Exercise)</span>
+                  <div class="slot-meta">[3 Cr | 6 ECTS]</div>
+                  <div class="room">Room: Lab-3</div>
+                </td>
+                <td>
+                  <span class="slot-code">SENG 310</span>
+                  <span class="slot-title">Project Management (Workshop)</span>
+                  <div class="slot-meta">[3 Cr | 7 ECTS]</div>
+                  <div class="room">Room: C-210</div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="legend" style="margin-top:12px">
+            <strong>Note:</strong> Slots are arranged for a clean Mon–Fri plan (09:00→14:45). Rooms are placeholders—edit as needed.
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script>
+    // Session guard
+    (function(){
+      try{
+        var u = localStorage.getItem('sessionUser');
+        if(!u){ window.location.href = 'login.html'; return; }
+      }catch(e){}
+    })();
+  </script>
+</body>
+</html>
