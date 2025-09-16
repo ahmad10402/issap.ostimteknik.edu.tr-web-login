@@ -186,10 +186,41 @@
       window.location.href = 'login.html';
     });
 
-    // Settings (demo)
-// Settings (demo)
-document.getElementById('settingsBtn')?.addEventListener('click', function(){
-  alert('Settings panel coming soon.');
-});
-  </svg>
-</button>
+  <!-- SETTINGS DEMO -->
+<div class="settings-pop">
+  <button class="icon-btn" title="Settings" id="settingsBtn">
+    <svg class="icon-gear" viewBox="0 0 24 24" fill="none">
+      <circle cx="12" cy="12" r="3.25" stroke-width="2"/>
+      <path stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+        d="M19.4 15a1 1 0 0 0 .2 1.1l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1 1 0 0 0-1.1-.2 8 8 0 0 1-2 .6 1 1 0 0 0-.8.9V21a2 2 0 1 1-4 0v-.2a1 1 0 0 0-.8-.9 8 8 0 0 1-2-.6 1 1 0 0 0-1.1.2l-.1.1A2 2 0 1 1 3.3 16l.1-.1a1 1 0 0 0 .2-1.1 8 8 0 0 1-.6-2 1 1 0 0 0-.9-.8H2a2 2 0 1 1 0-4h.2a1 1 0 0 0 .9-.8 8 8 0 0 1 .6-2 1 1 0 0 0-.2-1.1l-.1-.1A2 2 0 1 1 6.2 3.3l.1.1a1 1 0 0 0 1.1.2 8 8 0 0 1 2-.6 1 1 0 0 0 .8-.9V2a2 2 0 1 1 4 0v.2a1 1 0 0 0 .8.9 8 8 0 0 1 2 .6 1 1 0 0 0 1.1-.2l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1 1 0 0 0-.2 1.1 8 8 0 0 1 .6 2 1 1 0 0 0 .9.8H22a2 2 0 1 1 0 4h-.2a1 1 0 0 0-.9.8 8 8 0 0 1-.6 2z"/>
+    </svg>
+  </button>
+
+  <div class="settings-menu" id="settingsMenu">
+    <div class="settings-item" id="themeToggle">
+      <div class="lbl">Theme</div>
+      <div class="sub">Light / Dark</div>
+      <div class="switch" id="themeSwitch"></div>
+    </div>
+    <div class="divider"></div>
+    <div class="settings-item" id="langSelect">
+      <div class="lbl">Language</div>
+      <div class="sub">Interface Language</div>
+      <div class="lang-btns">
+        <button data-lang="tr" class="active">TR</button>
+        <button data-lang="en">EN</button>
+      </div>
+    </div>
+    <div class="divider"></div>
+    <div class="settings-item" id="notifToggle">
+      <div class="lbl">Notifications</div>
+      <div class="sub">Announcements & messages</div>
+      <div class="switch" id="notifSwitch"></div>
+    </div>
+    <div class="divider"></div>
+    <div class="settings-item" id="changePass">
+      <div class="lbl">Change Password</div>
+      <div class="sub">Update login password</div>
+    </div>
+  </div>
+</div>
