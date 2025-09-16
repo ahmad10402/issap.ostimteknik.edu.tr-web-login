@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ISAP Login - OSTIM Technical University</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="login-container">
+    <div class="login-box">
+      <img src="logo.png" alt="Ostim University Logo" class="logo">
+      <h2>ISAP Login</h2>
+      <form id="loginForm">
+        <label for="username">Username</label>
+        <input type="text" id="username" placeholder="Enter Student ID" required>
+
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="Enter Password" required>
+
+        <button type="submit">Login</button>
+        <p id="error" class="error"></p>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById('loginForm');
+    const errorMsg = document.getElementById('error');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const user = document.getElementById('username').value.trim();
+      const pass = document.getElementById('password').value;
+
+      if (user === "220208873" && pass === "AHMAD2022.COM") {
+        localStorage.setItem("sessionUser", user);
+        window.location.href = "dashboard.html";
+      } else {
+        errorMsg.textContent = "Invalid username or password!";
+      }
+    });
+  </script>
+</body>
+</html>
