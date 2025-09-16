@@ -1,36 +1,50 @@
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #f5f5f5;
+:root {
+  --ostim-red: #8b0f2b;
+  --ostim-red-dark: #700c22;
+  --text: #1f2937;
+  --muted: #6b7280;
+  --border: #e5e7eb;
+  --bg: #f5f5f5;
+  --card: #ffffff;
 }
 
+/* Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+/* ---------- LOGIN PAGE ---------- */
 .login-container {
   display: flex;
   height: 100vh;
   align-items: center;
   justify-content: center;
 }
-
 .login-box {
-  background: #fff;
+  background: var(--card);
   padding: 40px 30px;
   border-radius: 8px;
   box-shadow: 0 0 15px rgba(0,0,0,0.1);
   width: 350px;
   text-align: center;
 }
-
-.logo {
+.login-box .logo {
   width: 80px;
   margin-bottom: 15px;
 }
-
-h2 {
+.login-box h2 {
   margin-bottom: 20px;
-  color: #8b0f2b; /* الأحمر الخاص بـ Ostim */
+  color: var(--ostim-red);
 }
-
-label {
+.login-box label {
   display: block;
   text-align: left;
   margin-top: 15px;
@@ -38,82 +52,119 @@ label {
   font-weight: bold;
   color: #333;
 }
-
-input {
+.login-box input {
   width: 100%;
   padding: 10px;
-  border: 1px solid #ddd;
+  border: 1px solid var(--border);
   border-radius: 5px;
 }
-
-button {
+.login-box button {
   margin-top: 20px;
   width: 100%;
   padding: 12px;
-  background: #8b0f2b;
+  background: var(--ostim-red);
   color: white;
   border: none;
   border-radius: 5px;
   font-weight: bold;
   cursor: pointer;
 }
-
-button:hover {
-  background: #700c22;
+.login-box button:hover {
+  background: var(--ostim-red-dark);
 }
-
 .error {
   margin-top: 10px;
   color: red;
   font-size: 14px;
 }
-.dashboard-container {
-  max-width: 900px;
-  margin: 40px auto;
-  background: #fff;
-  padding: 30px;
-  border-radius: 8px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.1);
-}
 
-.dashboard-header {
-  display: flex;
-  align-items: center;
-  gap: 15px;
+/* ---------- DASHBOARD & INTERNAL PAGES ---------- */
+.container {
+  max-width: 1100px;
+  margin: 30px auto;
+  padding: 0 16px;
+}
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.08);
+  padding: 22px;
   margin-bottom: 20px;
 }
-
-.dashboard-header h2 {
-  color: #8b0f2b;
+.header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
 }
-
-.dashboard-main h3 {
-  margin-top: 0;
+.header .logo {
+  width: 46px;
+  height: auto;
 }
-
-.status.active {
-  color: green;
-  font-weight: bold;
-  margin: 10px 0 20px;
+.header h2 {
+  margin: 0;
+  color: var(--ostim-red);
 }
-
-.dashboard-nav {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
-}
-
-.dashboard-nav a {
-  display: block;
-  background: #8b0f2b;
+.btn {
+  display: inline-block;
+  padding: 10px 14px;
+  border: 0;
+  border-radius: 8px;
+  background: var(--ostim-red);
   color: #fff;
-  text-align: center;
-  padding: 12px;
-  border-radius: 6px;
   font-weight: bold;
+  cursor: pointer;
   text-decoration: none;
 }
-
-.dashboard-nav a:hover {
-  background: #700c22;
+.btn:hover {
+  background: var(--ostim-red-dark);
+}
+.status {
+  font-weight: bold;
+  margin: 6px 0 16px;
+  color: #16a34a; /* أخضر */
+}
+.grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 260px 1fr;
+}
+@media (max-width: 820px) {
+  .grid { grid-template-columns: 1fr; }
+}
+.sidebar .nav a {
+  display: block;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #fff;
+  color: #111;
+  text-decoration: none;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-align: center;
+}
+.sidebar .nav a:hover,
+.sidebar .nav a.active {
+  background: var(--ostim-red);
+  color: #fff;
+  border-color: var(--ostim-red);
+}
+.section-title {
+  margin: 0 0 10px 0;
+  color: var(--ostim-red);
+}
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+.table th, .table td {
+  border: 1px solid var(--border);
+  padding: 10px;
+  background: #fff;
+}
+.table th {
+  background: #fafafa;
+  text-align: left;
 }
