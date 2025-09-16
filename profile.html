@@ -2,54 +2,29 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Student Profile - OSTIM Technical University</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="style.css">
   <style>
-    .pill {
-      display:inline-block;
-      padding:6px 10px;
-      border-radius:999px;
-      font-weight:bold;
-      font-size:12px
-    }
-    .pill.green {
-      background:#dcfce7;
-      color:#166534;
-      border:1px solid #bbf7d0
-    }
-    .kv {
+    .profile-info {
       display:grid;
-      grid-template-columns:180px 1fr;
-      gap:10px 14px
+      grid-template-columns:1fr 1fr;
+      gap:14px;
+      margin-top:12px;
     }
-    @media (max-width:680px){
-      .kv{grid-template-columns:1fr}
-      .kv b{display:block;margin-bottom:4px}
-    }
-    .avatar {
-      width:64px;
-      height:64px;
-      border-radius:50%;
-      background:#f1f5f9;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-weight:900;
-      color:#8b0f2b;
-      border:1px solid #e5e7eb
-    }
-    .dim {
-      color:var(--muted);
-      font-size:13px
-    }
+    .profile-info div { padding:8px 0; }
+    .label { font-weight:600;color:#6b7280;font-size:14px }
+    .value { font-weight:700;color:#1f2937;font-size:15px }
+    @media(max-width:760px){ .profile-info{ grid-template-columns:1fr } }
+    .logo-top { width:65px; height:auto; }
   </style>
 </head>
 <body>
   <div class="container">
 
-    <div class="card header">
-      <img src="logo.png" alt="Logo" class="logo">
+    <!-- Header -->
+    <div class="card header" style="display:flex;align-items:center;gap:12px">
+      <img src="logo.png" alt="Logo" class="logo-top">
       <h2>Student Profile</h2>
       <div style="margin-left:auto">
         <a class="btn" href="dashboard.html">Dashboard</a>
@@ -60,13 +35,6 @@
       <!-- Sidebar -->
       <aside class="sidebar">
         <div class="card">
-          <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px">
-            <div class="avatar">AH</div>
-            <div>
-              <div style="font-weight:800">AHMAD ADEL MOHAMMAD HOROUB</div>
-              <div class="dim">ID: 220208873</div>
-            </div>
-          </div>
           <div class="status">ACTIVE</div>
           <nav class="nav">
             <a href="profile.html" class="active">Profile</a>
@@ -74,10 +42,6 @@
             <a href="transcript.html">Transcript</a>
             <a href="schedule.html">Schedule</a>
             <a href="selected-courses.html">Selected Courses</a>
-            <a href="semester1.html">Semester 1</a>
-            <a href="semester2.html">Semester 2</a>
-            <a href="semester3.html">Semester 3</a>
-            <a href="semester4.html">Semester 4</a>
           </nav>
         </div>
       </aside>
@@ -85,63 +49,30 @@
       <!-- Main -->
       <main>
         <section class="card">
-          <h3 class="section-title">Basic Information</h3>
-          <div class="kv" style="margin-top:8px">
-            <b>Full Name:</b><span>AHMAD ADEL MOHAMMAD HOROUB</span>
-            <b>Date of Birth:</b><span>27-12-2004</span>
-            <b>Enrollment Year:</b><span>2022</span>
-            <b>Current Year:</b><span>3rd Year</span>
-            <b>Status:</b><span><span class="pill green">ACTIVE</span></span>
-            <b>Completed Credits:</b><span>83</span>
-            <b>Student ID:</b><span>220208873</span>
+          <h3 class="section-title">Student Information</h3>
+          <div class="profile-info">
+            <div><span class="label">Full Name:</span> <span class="value">AHMAD ADEL MOHAMMAD HOROUB</span></div>
+            <div><span class="label">Student ID:</span> <span class="value">220208873</span></div>
+            <div><span class="label">Date of Birth:</span> <span class="value">27-12-2004</span></div>
+            <div><span class="label">Enrollment Year:</span> <span class="value">2022</span></div>
+            <div><span class="label">Year of Study:</span> <span class="value">3rd Year</span></div>
+            <div><span class="label">Status:</span> <span class="value" style="color:green">Active</span></div>
+            <div><span class="label">Completed Credits:</span> <span class="value">83</span></div>
+            <div><span class="label">GPA:</span> <span class="value">3.61</span></div>
+            <div><span class="label">Faculty:</span> <span class="value">Faculty of Engineering</span></div>
+            <div><span class="label">Major:</span> <span class="value">Software Engineering</span></div>
           </div>
-        </section>
-
-        <section class="card">
-          <h3 class="section-title">Academic Summary</h3>
-          <table class="table" style="margin-top:10px">
-            <thead>
-              <tr>
-                <th>Item</th>
-                <th>Value</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Status</td>
-                <td>Active Student</td>
-              </tr>
-              <tr>
-                <td>Completed Credits</td>
-                <td>86</td>
-              </tr>
-              <tr>
-                <td>Year</td>
-                <td>3rd Year</td>
-              </tr>
-              <tr>
-                <td>Enrollment</td>
-                <td>2022</td>
-              </tr>
-            </tbody>
-          </table>
-        </section>
-
-        <section class="card">
-          <h3 class="section-title">Notes</h3>
-          <p class="dim">Additional details such as major, advisor, and university email can be added here later.</p>
         </section>
       </main>
     </div>
   </div>
 
   <script>
-    // Simple session check: if no login session, redirect to login
+    // Session guard
     (function(){
-      try{
-        var u = localStorage.getItem('sessionUser');
-        if(!u){ window.location.href = 'login.html'; return; }
-      }catch(e){}
+      try {
+        if(!localStorage.getItem('sessionUser')){ window.location.href = 'login.html'; }
+      } catch(e){}
     })();
   </script>
 </body>
