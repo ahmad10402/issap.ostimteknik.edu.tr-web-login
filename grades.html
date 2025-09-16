@@ -5,12 +5,13 @@
   <title>Grades - OSTIM Technical University</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="style.css">
+  <style>.table th,.table td{text-align:center}</style>
 </head>
 <body>
   <div class="container">
 
     <!-- Header -->
-    <div class="card header">
+    <div class="card header" style="display:flex;align-items:center;gap:12px">
       <img src="logo.png" alt="Logo" class="logo">
       <h2>Grades</h2>
       <div style="margin-left:auto">
@@ -37,132 +38,100 @@
       <main>
 
         <!-- Semester 1 -->
-        <section class="card" id="s1">
+        <section class="card">
           <h3 class="section-title">Semester 1</h3>
-          <table class="table" style="margin-top:10px">
+          <table class="table">
             <thead>
               <tr>
-                <th>Course</th>
-                <th>Cr</th>
-                <th>ECTS</th>
-                <th>Grade</th>
-                <th>Score (100)</th>
+                <th>Code</th><th>Course</th><th>Cr</th><th>ECTS</th><th>Grade</th><th>Score</th><th>GPA</th>
               </tr>
             </thead>
             <tbody>
-              <tr><td>MATH 101 – Engineering Mathematics I</td><td>4</td><td>6</td><td>A</td><td>95</td></tr>
-              <tr><td>PHYS 101 – Engineering Physics I</td><td>4</td><td>6</td><td>B+</td><td>88</td></tr>
-              <tr><td>CENG 109 – Programming and Computation I</td><td>3</td><td>4</td><td>A-</td><td>91</td></tr>
-              <tr><td>ENG 101 – Academic English I</td><td>3</td><td>3</td><td>B</td><td>85</td></tr>
-              <tr><td>IUL 151 – Introduction to University Life</td><td>2</td><td>2</td><td>A</td><td>95</td></tr>
-              <tr><td>TUR 101 – Turkish Language I</td><td>2</td><td>2</td><td>B+</td><td>88</td></tr>
-              <tr><td>ATA 101 – Principles of Atatürk &amp; History I</td><td>2</td><td>2</td><td>A-</td><td>91</td></tr>
-              <tr><td>EPR 121 – Fundamentals of Entrepreneurship</td><td>1</td><td>1</td><td>A</td><td>95</td></tr>
+              <tr><td>MATH 101</td><td>Engineering Mathematics I</td><td>4</td><td>6</td><td>A</td><td>95</td><td>4.0</td></tr>
+              <tr><td>PHYS 101</td><td>Engineering Physics I</td><td>4</td><td>6</td><td>B+</td><td>88</td><td>3.3</td></tr>
+              <tr><td>CENG 109</td><td>Programming and Computation I</td><td>3</td><td>4</td><td>A-</td><td>92</td><td>3.7</td></tr>
+              <tr><td>ENG 101</td><td>Academic English I</td><td>3</td><td>3</td><td>B</td><td>85</td><td>3.0</td></tr>
+              <tr><td>IUL 151</td><td>Introduction to University Life</td><td>2</td><td>2</td><td>A</td><td>98</td><td>4.0</td></tr>
+              <tr><td>TUR 101</td><td>Turkish Language I</td><td>2</td><td>2</td><td>B+</td><td>90</td><td>3.3</td></tr>
+              <tr><td>ATA 101</td><td>Principles of Atatürk & History I</td><td>2</td><td>2</td><td>A-</td><td>93</td><td>3.7</td></tr>
+              <tr><td>EPR 121</td><td>Fundamentals of Entrepreneurship</td><td>1</td><td>1</td><td>A</td><td>96</td><td>4.0</td></tr>
             </tbody>
             <tfoot>
-              <tr>
-                <th>Total</th><th>21</th><th>26</th><th>-</th><th>-</th>
-              </tr>
+              <tr><th colspan="2">Totals</th><th>21</th><th>26</th><th colspan="3">—</th></tr>
             </tfoot>
           </table>
         </section>
 
         <!-- Semester 2 -->
-        <section class="card" id="s2">
+        <section class="card">
           <h3 class="section-title">Semester 2</h3>
-          <table class="table" style="margin-top:10px">
+          <table class="table">
             <thead>
               <tr>
-                <th>Course</th>
-                <th>Cr</th>
-                <th>ECTS</th>
-                <th>Grade</th>
-                <th>Score (100)</th>
+                <th>Code</th><th>Course</th><th>Cr</th><th>ECTS</th><th>Grade</th><th>Score</th><th>GPA</th>
               </tr>
             </thead>
             <tbody>
-              <tr><td>MATH 102 – Engineering Mathematics II</td><td>4</td><td>6</td><td>A-</td><td>91</td></tr>
-              <tr><td>PHYS 102 – Engineering Physics II</td><td>4</td><td>6</td><td>B+</td><td>88</td></tr>
-              <tr><td>CENG 110 – Programming and Computation II</td><td>3</td><td>4</td><td>A</td><td>95</td></tr>
-              <tr><td>ENG 102 – Academic English II</td><td>3</td><td>3</td><td>B</td><td>85</td></tr>
-              <tr><td>SENG 116 – Object-Oriented Programming</td><td>3</td><td>4</td><td>A</td><td>95</td></tr>
-              <tr><td>TUR 102 – Turkish Language II</td><td>2</td><td>2</td><td>B+</td><td>88</td></tr>
-              <tr><td>ATA 102 – Principles of Atatürk &amp; History II</td><td>2</td><td>2</td><td>A-</td><td>91</td></tr>
-              <tr><td>EPR 122 – Entrepreneurship Project</td><td>1</td><td>1</td><td>A-</td><td>91</td></tr>
+              <tr><td>MATH 102</td><td>Engineering Mathematics II</td><td>4</td><td>6</td><td>A-</td><td>94</td><td>3.7</td></tr>
+              <tr><td>PHYS 102</td><td>Engineering Physics II</td><td>4</td><td>6</td><td>B+</td><td>87</td><td>3.3</td></tr>
+              <tr><td>CENG 110</td><td>Programming and Computation II</td><td>3</td><td>4</td><td>A</td><td>91</td><td>4.0</td></tr>
+              <tr><td>ENG 102</td><td>Academic English II</td><td>3</td><td>3</td><td>B</td><td>84</td><td>3.0</td></tr>
+              <tr><td>SENG 116</td><td>Object-Oriented Programming</td><td>3</td><td>4</td><td>A</td><td>97</td><td>4.0</td></tr>
+              <tr><td>TUR 102</td><td>Turkish Language II</td><td>2</td><td>2</td><td>B+</td><td>89</td><td>3.3</td></tr>
+              <tr><td>ATA 102</td><td>Principles of Atatürk & History II</td><td>2</td><td>2</td><td>A-</td><td>92</td><td>3.7</td></tr>
+              <tr><td>EPR 122</td><td>Entrepreneurship Project</td><td>1</td><td>1</td><td>A-</td><td>95</td><td>3.7</td></tr>
             </tbody>
             <tfoot>
-              <tr>
-                <th>Total</th><th>22</th><th>28</th><th>-</th><th>-</th>
-              </tr>
+              <tr><th colspan="2">Totals</th><th>22</th><th>28</th><th colspan="3">—</th></tr>
             </tfoot>
           </table>
         </section>
 
         <!-- Semester 3 -->
-        <section class="card" id="s3">
+        <section class="card">
           <h3 class="section-title">Semester 3</h3>
-          <table class="table" style="margin-top:10px">
+          <table class="table">
             <thead>
               <tr>
-                <th>Course</th>
-                <th>Cr</th>
-                <th>ECTS</th>
-                <th>Grade</th>
-                <th>Score (100)</th>
+                <th>Code</th><th>Course</th><th>Cr</th><th>ECTS</th><th>Grade</th><th>Score</th><th>GPA</th>
               </tr>
             </thead>
             <tbody>
-              <tr><td>MATH 202 – Differential Equations</td><td>4</td><td>5</td><td>B+</td><td>88</td></tr>
-              <tr><td>CENG 213 – Discrete Computing Structures</td><td>3</td><td>6</td><td>A</td><td>95</td></tr>
-              <tr><td>CENG 205 – Data Structures and Algorithms</td><td>3</td><td>6</td><td>A-</td><td>91</td></tr>
-              <tr><td>SENG 207 – Human-Computer Interaction</td><td>3</td><td>4</td><td>B+</td><td>88</td></tr>
-              <tr><td>FRL 211 – Optional Foreign Language I</td><td>3</td><td>3</td><td>B</td><td>85</td></tr>
-              <tr><td>NTE 1 – Non-Technical Elective</td><td>3</td><td>3</td><td>A-</td><td>91</td></tr>
-              <tr><td>WAP 227 – Workplace Application I</td><td>3</td><td>3</td><td>A</td><td>95</td></tr>
+              <tr><td>MATH 202</td><td>Differential Equations</td><td>4</td><td>5</td><td>B+</td><td>90</td><td>3.3</td></tr>
+              <tr><td>CENG 213</td><td>Discrete Computing Structures</td><td>3</td><td>6</td><td>A</td><td>96</td><td>4.0</td></tr>
+              <tr><td>CENG 205</td><td>Data Structures and Algorithms</td><td>3</td><td>6</td><td>A-</td><td>93</td><td>3.7</td></tr>
+              <tr><td>SENG 207</td><td>Human-Computer Interaction</td><td>3</td><td>4</td><td>B+</td><td>88</td><td>3.3</td></tr>
+              <tr><td>FRL 211</td><td>Optional Foreign Language I</td><td>3</td><td>3</td><td>B</td><td>85</td><td>3.0</td></tr>
+              <tr><td>NTE 1</td><td>Non-Technical Elective</td><td>3</td><td>3</td><td>A-</td><td>92</td><td>3.7</td></tr>
+              <tr><td>WAP 227</td><td>Workplace Application I</td><td>3</td><td>3</td><td>A</td><td>94</td><td>4.0</td></tr>
             </tbody>
             <tfoot>
-              <tr>
-                <th>Total</th><th>22</th><th>30</th><th>-</th><th>-</th>
-              </tr>
+              <tr><th colspan="2">Totals</th><th>22</th><th>30</th><th colspan="3">—</th></tr>
             </tfoot>
           </table>
         </section>
 
         <!-- Semester 4 -->
-        <section class="card" id="s4">
+        <section class="card">
           <h3 class="section-title">Semester 4</h3>
-          <table class="table" style="margin-top:10px">
+          <table class="table">
             <thead>
               <tr>
-                <th>Course</th>
-                <th>Cr</th>
-                <th>ECTS</th>
-                <th>Grade</th>
-                <th>Score (100)</th>
+                <th>Code</th><th>Course</th><th>Cr</th><th>ECTS</th><th>Grade</th><th>Score</th><th>GPA</th>
               </tr>
             </thead>
             <tbody>
-              <tr><td>SE401 – Programming Languages</td><td>3</td><td>3</td><td>A-</td><td>91</td></tr>
-              <tr><td>SE402 – Algorithmics</td><td>3</td><td>3</td><td>A</td><td>95</td></tr>
-              <tr><td>SE403 – Database Systems</td><td>3</td><td>3</td><td>B+</td><td>88</td></tr>
-              <tr><td>SE404 – Operating Systems</td><td>3</td><td>3</td><td>A</td><td>95</td></tr>
-              <tr><td>SE405 – Software Design</td><td>3</td><td>3</td><td>B+</td><td>88</td></tr>
-              <tr><td>SE406 – Computer Networks</td><td>3</td><td>3</td><td>A</td><td>95</td></tr>
+              <tr><td>SE401</td><td>Programming Languages</td><td>3</td><td>3</td><td>A</td><td>95</td><td>4.0</td></tr>
+              <tr><td>SE402</td><td>Algorithmics</td><td>3</td><td>3</td><td>A</td><td>97</td><td>4.0</td></tr>
+              <tr><td>SE403</td><td>Database Systems</td><td>3</td><td>3</td><td>B+</td><td>90</td><td>3.3</td></tr>
+              <tr><td>SE404</td><td>Operating Systems</td><td>3</td><td>3</td><td>A-</td><td>93</td><td>3.7</td></tr>
+              <tr><td>SE405</td><td>Software Design</td><td>3</td><td>3</td><td>B+</td><td>88</td><td>3.3</td></tr>
+              <tr><td>SE406</td><td>Computer Networks</td><td>3</td><td>3</td><td>A-</td><td>92</td><td>3.7</td></tr>
             </tbody>
             <tfoot>
-              <tr>
-                <th>Total</th><th>18</th><th>18</th><th>-</th><th>-</th>
-              </tr>
+              <tr><th colspan="2">Totals</th><th>18</th><th>18</th><th colspan="3">—</th></tr>
             </tfoot>
           </table>
-        </section>
-
-        <!-- Legend -->
-        <section class="card">
-          <h3 class="section-title">Grade → Score Mapping</h3>
-          <p style="color:#6b7280;font-size:14px">
-            A+ = 98 &nbsp;|&nbsp; A = 95 &nbsp;|&nbsp; A- = 91 &nbsp;|&nbsp; B+ = 88 &nbsp;|&nbsp; B = 85
-          </p>
         </section>
 
       </main>
@@ -170,7 +139,7 @@
   </div>
 
   <script>
-    // Simple session guard: redirect to login if no session
+    // Session guard
     (function(){
       try{
         var u = localStorage.getItem('sessionUser');
