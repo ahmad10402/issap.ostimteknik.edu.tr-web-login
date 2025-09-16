@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Profile - OSTIM Technical University</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .pill {
+      display:inline-block;
+      padding:6px 10px;
+      border-radius:999px;
+      font-weight:bold;
+      font-size:12px
+    }
+    .pill.green {
+      background:#dcfce7;
+      color:#166534;
+      border:1px solid #bbf7d0
+    }
+    .kv {
+      display:grid;
+      grid-template-columns:180px 1fr;
+      gap:10px 14px
+    }
+    @media (max-width:680px){
+      .kv{grid-template-columns:1fr}
+      .kv b{display:block;margin-bottom:4px}
+    }
+    .avatar {
+      width:64px;
+      height:64px;
+      border-radius:50%;
+      background:#f1f5f9;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:900;
+      color:#8b0f2b;
+      border:1px solid #e5e7eb
+    }
+    .dim {
+      color:var(--muted);
+      font-size:13px
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <div class="card header">
+      <img src="logo.png" alt="Logo" class="logo">
+      <h2>Student Profile</h2>
+      <div style="margin-left:auto">
+        <a class="btn" href="dashboard.html">Dashboard</a>
+      </div>
+    </div>
+
+    <div class="grid">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <div class="card">
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px">
+            <div class="avatar">AH</div>
+            <div>
+              <div style="font-weight:800">AHMAD ADEL MOHAMMAD HOROUB</div>
+              <div class="dim">ID: 220208873</div>
+            </div>
+          </div>
+          <div class="status">ACTIVE</div>
+          <nav class="nav">
+            <a href="profile.html" class="active">Profile</a>
+            <a href="grades.html">Grades</a>
+            <a href="transcript.html">Transcript</a>
+            <a href="schedule.html">Schedule</a>
+            <a href="selected-courses.html">Selected Courses</a>
+            <a href="semester1.html">Semester 1</a>
+            <a href="semester2.html">Semester 2</a>
+            <a href="semester3.html">Semester 3</a>
+            <a href="semester4.html">Semester 4</a>
+          </nav>
+        </div>
+      </aside>
+
+      <!-- Main -->
+      <main>
+        <section class="card">
+          <h3 class="section-title">Basic Information</h3>
+          <div class="kv" style="margin-top:8px">
+            <b>Full Name:</b><span>AHMAD ADEL MOHAMMAD HOROUB</span>
+            <b>Date of Birth:</b><span>27-12-2004</span>
+            <b>Enrollment Year:</b><span>2022</span>
+            <b>Current Year:</b><span>3rd Year</span>
+            <b>Status:</b><span><span class="pill green">ACTIVE</span></span>
+            <b>Completed Credits:</b><span>86</span>
+            <b>Student ID:</b><span>220208873</span>
+          </div>
+        </section>
+
+        <section class="card">
+          <h3 class="section-title">Academic Summary</h3>
+          <table class="table" style="margin-top:10px">
+            <thead>
+              <tr>
+                <th>Item</th>
+                <th>Value</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Status</td>
+                <td>Active Student</td>
+              </tr>
+              <tr>
+                <td>Completed Credits</td>
+                <td>86</td>
+              </tr>
+              <tr>
+                <td>Year</td>
+                <td>3rd Year</td>
+              </tr>
+              <tr>
+                <td>Enrollment</td>
+                <td>2022</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section class="card">
+          <h3 class="section-title">Notes</h3>
+          <p class="dim">Additional details such as major, advisor, and university email can be added here later.</p>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script>
+    // Simple session check: if no login session, redirect to login
+    (function(){
+      try{
+        var u = localStorage.getItem('sessionUser');
+        if(!u){ window.location.href = 'login.html'; return; }
+      }catch(e){}
+    })();
+  </script>
+</body>
+</html>
